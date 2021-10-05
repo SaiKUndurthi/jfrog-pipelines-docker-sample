@@ -1,8 +1,18 @@
-FROM ubuntu:18.04
-ADD . /
-RUN chmod +x /install.sh
+FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS build
+WORKDIR /app
 
-RUN /install.sh && rm -rf /tmp && mkdir /tmp && chmod 1777 /tmp
+# copy csproj and restore as distinct layers
+COPY dotnetapp/*.csproj .
+RUN dotnet restore
 
-ENV BASH_ENV "/etc/drydock/.env"
+# copy and build everything else
+COPY . .
+WORKDIR /app/dotnetapp
+RUN dotnet publish -c Release -o out --no-restore
+
+
+FROM mcr.microsoft.com/dotnet/framework/runtime:4.8 AS runtime
+WORKDIR /app
+COPY --from=build /app/dotnetapp/out ./
+ENTRYPOINT ["dotnetapp.exe"]
 
