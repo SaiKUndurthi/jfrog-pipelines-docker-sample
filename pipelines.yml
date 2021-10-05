@@ -49,3 +49,5 @@ pipelines:
             - echo "Testing"
           onExecute:
             - echo "msbuild"
+          onExecute:
+            - dotnet
