@@ -41,7 +41,7 @@ pipelines:
             type: image
             image:
               custom:
-                name: testshani-a-docker.jfrog.io/mcr.microsoft.com/dotnet/framework/sdk
+                name: testshani.jfrog.io/mcr/dotnet/framework/sdk
                 tag: latest
 #                autoPull: true                          # <-- replace with your artifactory integration
         execution:
