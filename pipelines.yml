@@ -35,46 +35,17 @@ pipelines:
   - name: pipeline_dbp
     steps:
       - name: docker_build
-        type: DockerBuild
+        type: PowerShell
         configuration:
-          affinityGroup: dbp_group
-          dockerFileLocation: .
-          dockerFileName: Dockerfile
-          dockerImageName: mcr.microsoft.com/dotnet/framework/sdk  # replace with your image path and name
-          dockerImageTag: ${run_number}
-          inputResources:
-            - name: dbp_repo
-          integrations:
-            - name: art                            # <-- replace with your artifactory integration
-
-      - name: docker_push
-        type: DockerPush
-        configuration:
-          affinityGroup: dbp_group
-          targetRepository: docker-local
-          integrations:
-            - name: art                            # <-- replace with your artifactory integration
-          inputSteps:
-            - name: docker_build
-          outputResources:
-            - name: dbp_image
-
-      - name: publish_dbp_build
-        type: PublishBuildInfo
-        configuration:
-          inputSteps:
-            - name: docker_push
-          outputResources:
-            - name: dbp_build_info
-
-      - name: promote_dbp_build
-        type: PromoteBuild
-        configuration:
-          targetRepository: demo-pipelines
-          integrations:
-            - name: art
-          inputResources:
-            - name: dbp_build_info
-          outputResources:
-            - name: dbp_promoted_build_info
-
+          runtime:
+            type: image
+            image:
+              custom:
+                name: mcr.microsoft.com/dotnet/framework/sdk
+                tag: "4.8"
+                autoPull: true                          # <-- replace with your artifactory integration
+         execution:
+          onStart:
+            - echo "Testing"
+          onExecute:
+            - echo "msbuild"
