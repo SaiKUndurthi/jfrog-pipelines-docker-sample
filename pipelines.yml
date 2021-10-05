@@ -36,13 +36,13 @@ pipelines:
     steps:
       - name: power_buld
         type: PowerShell
-        configuration:
-          runtime:
-            type: image
-            image:
-              custom:
-                name: testshani.jfrog.io/mcr/dotnet/framework/sdk
-                tag: 	4.7.2
+        #configuration:
+         # runtime:
+          #  type: image
+           # image:
+            #  custom:
+             #   name: testshani.jfrog.io/mcr/dotnet/framework/sdk
+              #  tag: 	4.7.2
 #                autoPull: true                          # <-- replace with your artifactory integration
         execution:
           onStart:
