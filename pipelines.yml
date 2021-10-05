@@ -34,7 +34,7 @@ resources:
 pipelines:
   - name: pipeline_dbp
     steps:
-      - name: docker_build
+      - name: power_buld
         type: PowerShell
         configuration:
           runtime:
