@@ -42,6 +42,7 @@ pipelines:
             image:
               custom:
                 name: mcr.microsoft.com/dotnet/framework/sdk
+                tag: latest
 #                autoPull: true                          # <-- replace with your artifactory integration
         execution:
           onStart:
