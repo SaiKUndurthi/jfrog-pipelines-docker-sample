@@ -41,7 +41,7 @@ pipelines:
             type: image
             image:
               custom:
-                name: testshani.jfrog.io/a-docker/dotnet/framework/sdk
+                name: busybox
                 tag: latest
 #                autoPull: true                          # <-- replace with your artifactory integration
         execution:
