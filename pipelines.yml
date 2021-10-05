@@ -44,7 +44,7 @@ pipelines:
                 name: mcr.microsoft.com/dotnet/framework/sdk
                 tag: "4.8"
                 autoPull: true                          # <-- replace with your artifactory integration
-         execution:
+        execution:
           onStart:
             - echo "Testing"
           onExecute:
