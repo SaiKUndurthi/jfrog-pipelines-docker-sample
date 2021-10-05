@@ -2,7 +2,7 @@ resources:
   - name: dbp_repo
     type: GitRepo
     configuration:
-      gitProvider: sairepo                       # <-- replace with your integration
+      gitProvider: git                       # <-- replace with your integration
       path: SaiKUndurthi/jfrog-pipelines-docker-sample    # <-- replace with your repository name
       branches:
         include: master
@@ -45,7 +45,7 @@ pipelines:
           inputResources:
             - name: dbp_repo
           integrations:
-            - name: dockert                            # <-- replace with your artifactory integration
+            - name: art                            # <-- replace with your artifactory integration
 
       - name: docker_push
         type: DockerPush
