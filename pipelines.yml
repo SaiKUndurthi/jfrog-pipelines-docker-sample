@@ -42,8 +42,7 @@ pipelines:
             image:
               custom:
                 name: mcr.microsoft.com/dotnet/framework/sdk
-                tag: "4.8"
-                autoPull: true                          # <-- replace with your artifactory integration
+#                autoPull: true                          # <-- replace with your artifactory integration
         execution:
           onStart:
             - echo "Testing"
