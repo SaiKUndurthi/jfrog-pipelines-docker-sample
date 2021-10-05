@@ -42,7 +42,7 @@ pipelines:
             image:
               custom:
                 name: testshani.jfrog.io/mcr/dotnet/framework/sdk
-                tag: latest
+                tag: 	4.7.2
 #                autoPull: true                          # <-- replace with your artifactory integration
         execution:
           onStart:
