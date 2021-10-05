@@ -2,17 +2,17 @@ resources:
   - name: dbp_repo
     type: GitRepo
     configuration:
-      gitProvider: my_github                       # <-- replace with your integration
-      path: jfrog/jfrog-pipelines-docker-sample    # <-- replace with your repository name
+      gitProvider: sairepo                       # <-- replace with your integration
+      path: SaiKUndurthi/jfrog-pipelines-docker-sample    # <-- replace with your repository name
       branches:
         include: master
 
   - name: dbp_image
     type: Image
     configuration:
-      registry: art                                # <-- replace with your artifactory integration
-      sourceRepository: docker_local               # <-- required if registry is Artifactory
-      imageName: kaloula.jfrog-pipelines.com/docker-local/dbp  # < -- replace with your image path and name
+      registry: dockert                                # <-- replace with your artifactory integration
+      sourceRepository: a-docker               # <-- required if registry is Artifactory
+      imageName: mcr.microsoft.com/dotnet/framework/sdk  # < -- replace with your image path and name
       imageTag: latest
       autoPull: true
       
