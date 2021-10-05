@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS build
 WORKDIR /app
 
-# copy csproj and restore as distinct layers
+# copy csproj and restore as distinct layers..
 COPY dotnetapp/*.csproj .
 RUN dotnet restore
 
